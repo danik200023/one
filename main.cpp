@@ -38,13 +38,9 @@ struct Vector {
 
     Vector() : mData(nullptr), mSize(0), mCapacity(0) {}
 
-    explicit Vector(size_t count) : mData(new int[count]), mSize(count), mCapacity(count) {
-        for (size_t i = 0; i < mSize; i++) {
-            mData[i] = 0;
-        }
-    }
+    explicit Vector(const size_t count) : mData(new int[count]), mSize(count), mCapacity(count) {}
 
-    Vector(size_t count, const int& value) : mData(new int[count]), mSize(count), mCapacity(count) {
+    Vector(const size_t count, const int& value) : mData(new int[count]), mSize(count), mCapacity(count) {
         for (size_t i = 0; i < mSize; i++) {
             mData[i] = value;
         }
@@ -81,5 +77,7 @@ struct Vector {
 };
 
 int main() {
+    std::vector<int> vec(4);
 
+    std::cout << vec[0] << vec[1] << vec[2] << std::endl;
 }
